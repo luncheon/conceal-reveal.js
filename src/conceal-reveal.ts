@@ -14,13 +14,11 @@ export function conceal(element: HTMLElement): void {
     if (element.offsetHeight) {
       const originalHeight = element.style.height
       element.style.setProperty('height', `${getStyleHeight(element)}px`, 'important')
-      element.getBoundingClientRect() // forcely reflect above height
-      setTimeout(() => {
-        element.addEventListener('transitionend', onTransitionEnd)
-        classList.add(CLASS_CONCEALING)
-        classList.remove(CLASS_REVEALING)
-        element.style.height = originalHeight
-      })
+      element.getBoundingClientRect() // reflect height above
+      element.addEventListener('transitionend', onTransitionEnd)
+      classList.add(CLASS_CONCEALING)
+      classList.remove(CLASS_REVEALING)
+      element.style.height = originalHeight
     } else {
       classList.add(CLASS_CONCEALED)
     }
@@ -41,7 +39,7 @@ export function reveal(element: HTMLElement): void {
     element.parentElement!.insertBefore(clone, element)
     const expandedStyleHeight = getStyleHeight(clone)
     const expandedOffsetHeight = clone.offsetHeight
-    clone.remove()
+    clone.parentElement!.removeChild(clone)
     if (expandedOffsetHeight !== element.offsetHeight) {
       element.addEventListener('transitionend', onTransitionEnd)
       classList.add(CLASS_REVEALING)
