@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>conceal-reveal.js - A tiny vanilla-js library to conceal/reveal elements</title><link rel="stylesheet" href="conceal-reveal.min.css"><script src="conceal-reveal.min.js"></script><style>body {
+  color: #333;
+  margin: 0;
+  padding: .5em 1em;
+}
+h1 {
+  margin: 0 .25em 0 0;
+  display: inline-block;
+}
+#target {
+  border: 1px solid #bbb;
+  padding: 1em 1.5em;
+}
+#target, .ripple {
+  background-image: linear-gradient(45deg, #c0f8ff, #c0ffdb);
+}
+.ripple {
+  opacity: .5;
+}
+button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  min-width: 6em;
+  padding: .25em .5em;
+  border: 1px solid #888;
+  border-radius: .25em;
+  background-color: transparent;
+  font-size: .875rem;
+  margin-right: .5rem;
+}
+.button-container {
+  margin-bottom: 10px;
+}</style></head><body><header><h1>conceal-reveal.js</h1><a href="https://github.com/luncheon/conceal-reveal.js" style="display: inline-block; padding: .25em;"><img src="https://cdn.jsdelivr.net/npm/octicons@7.0.1/build/svg/mark-github.svg" alt="GitHub" style="height: 2.25em; vertical-align: bottom;"></a><p style="margin-top: .25em;">A tiny vanilla-js library to conceal/reveal elements.</p></header><div class="button-container"><button type="button" data-ripplet="class-name: ripple" onclick="ConcealReveal.conceal(document.getElementById('target'))">conceal</button><button type="button" data-ripplet="class-name: ripple" onclick="ConcealReveal.reveal(document.getElementById('target'))">reveal</button><button type="button" data-ripplet="class-name: ripple" onclick="ConcealReveal.toggle(document.getElementById('target'))">toggle</button></div><p id="target">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><script src="https://cdn.jsdelivr.net/npm/ripplet.js@0.1.13/umd/ripplet-declarative.min.js"></script></body></html>

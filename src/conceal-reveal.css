@@ -1,0 +1,28 @@
+.concealing {
+  transition: all ease, opacity ease-in-out, border-width cubic-bezier(.5, 0, 1, .5);
+  transition-duration: .3s;
+}
+
+.revealing {
+  transition: all ease, opacity ease-in-out, border-width cubic-bezier(0, .5, .5, 1);
+  transition-duration: .3s;
+}
+
+.concealed,
+.concealing {
+  opacity: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-top-width: 0 !important;
+  border-bottom-width: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.concealed,
+.concealing,
+.revealing {
+  overflow-y: hidden !important;
+}
