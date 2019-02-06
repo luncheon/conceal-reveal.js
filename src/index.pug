@@ -4,28 +4,46 @@ html(lang="en")
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width,initial-scale=1.0")
-    title #{name}.js - #{description}
-    link(rel="stylesheet" href=`${name}.min.css`)
-    script(src=`${name}.min.js`)
+    title conceal-reveal.js - #{description}
+    link(rel="preconnect" href="https://fonts.gstatic.com/" crossorigin)
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro|Source+Serif+Pro")
+    link(rel="stylesheet" href="conceal-reveal.min.css")
+    script(src="conceal-reveal.min.js")
     style.
       body {
         color: #333;
         margin: 0;
         padding: .5em 1em;
+        font-family: 'Source Sans Pro', sans-serif;
+      }
+      header {
+        padding-bottom: 1em;
       }
       h1 {
         margin: 0 .25em 0 0;
         display: inline-block;
+        font-family: "Fredoka One", sans-serif;
+        font-size: 2rem;
+      }
+      h1 > .conceal {
+        color: white;
+        text-shadow: 0 0 4px #888;
+      }
+      h1 > .hyphen {
+        padding: 0 2px;
+        color: #bbb;
+      }
+      h1 > .js {
+        padding-left: 1px;
+        color: #666;
       }
       #target {
         border: 1px solid #bbb;
         padding: 1em 1.5em;
-      }
-      #target, .ripple {
+        margin: .5em 0;
         background-image: linear-gradient(45deg, #c0f8ff, #c0ffdb);
-      }
-      .ripple {
-        opacity: .5;
+        line-height: 1.6;
+        font-family: 'Source Serif Pro', serif;
       }
       button {
         touch-action: manipulation;
@@ -36,22 +54,24 @@ html(lang="en")
         border: 1px solid #888;
         border-radius: .25em;
         background-color: transparent;
+        font-family: inherit;
         font-size: .875rem;
         margin-right: .5rem;
       }
-      .button-container {
-        margin-bottom: 10px;
-      }
   body
     header
-      h1 #{name}.js
+      h1
+        span.conceal conceal
+        span.hyphen -
+        span.reveal reveal
       a(href=`https://github.com/${repository}` style="display: inline-block; padding: .25em;")
         img(src="https://cdn.jsdelivr.net/npm/octicons@7.0.1/build/svg/mark-github.svg" alt="GitHub" style="height: 2.25em; vertical-align: bottom;")
-      p(style="margin-top: .25em;") #{description}.
-    .button-container
-      button(type="button" data-ripplet="class-name: ripple" onclick=`${config.entry}.conceal(document.getElementById('target'))`) conceal
-      button(type="button" data-ripplet="class-name: ripple" onclick=`${config.entry}.reveal(document.getElementById('target'))`) reveal
-      button(type="button" data-ripplet="class-name: ripple" onclick=`${config.entry}.toggle(document.getElementById('target'))`) toggle
-    p#target
-      | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      p(style="margin: .5em 0;") #{description}.
+    main
+      .button-container
+        button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick="ConcealReveal.conceal(document.getElementById('target'))") conceal
+        button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick="ConcealReveal.reveal(document.getElementById('target'))") reveal
+        button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick="ConcealReveal.toggle(document.getElementById('target'))") toggle
+      p#target
+        | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     script(src="https://cdn.jsdelivr.net/npm/ripplet.js@0.1.13/umd/ripplet-declarative.min.js")
