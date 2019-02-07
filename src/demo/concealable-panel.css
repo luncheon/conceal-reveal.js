@@ -5,20 +5,28 @@
 .panel-header {
   display: flex;
   align-items: center;
-  background-color: #eee;
+  color: white;
+  background-image: linear-gradient(30deg, #f75, #f58);
   padding: .5em 1.5em;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .panel-title {
   flex: auto;
-  font-weight: bold;
+  text-shadow: 1px 1px 0 black;
 }
 .panel-toolbar {
   flex: none;
 }
 .panel-content {
   padding: 0 1.5em 1.5em 1.5em;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #bbb;
+  background-color: #f6f8fa;
 }
 .panel-concealment-indicator {
   transition: transform .3s;
