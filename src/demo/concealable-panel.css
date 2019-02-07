@@ -22,4 +22,5 @@
 }
 .panel-concealment-indicator {
   transition: transform .3s;
+  font-family: Georgia, sans-serif;
 }
