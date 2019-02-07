@@ -38,15 +38,17 @@ export function conceal(element: HTMLElement): void {
  */
 export function reveal(element: HTMLElement): void {
   if (concealed(element)) {
-    if (element.style.height) {
-      saveOriginalStyleHeight(element)
-    }
+    const currentOffsetHeight = element.offsetHeight
     const classList = element.classList
     element.removeAttribute('aria-hidden')
     classList.remove(CLASS_CONCEALING)
     classList.remove(CLASS_CONCEALED)
-    restoreOriginalStyleHeight(element)
-    if (element.offsetHeight) {
+    if (element.style.height) {
+      saveOriginalStyleHeight(element)
+    } else {
+      restoreOriginalStyleHeight(element)
+    }
+    if (element.offsetHeight !== currentOffsetHeight) {
       const expandedStyleHeight = getCurrentStyleHeight(element)
       classList.add(CLASS_CONCEALED)
       element.style.height = ''
