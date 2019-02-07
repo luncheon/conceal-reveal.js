@@ -64,7 +64,7 @@ or for [modern browsers](https://caniuse.com/#feat=es6-module):
 
 ```html
 <div>This content is visible by default and can be concealed.</div>
-<div class="concealed">This content is concealed by default and can be revealed.</div>
+<div class="concealed" aria-hidden="true">This content is concealed by default and can be revealed.</div>
 ```
 
 
