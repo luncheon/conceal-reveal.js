@@ -4,11 +4,11 @@ html(lang="en")
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width,initial-scale=1.0")
-    title conceal-reveal.js - #{description}
+    title #{name} - #{description}
     link(rel="preconnect" href="https://fonts.gstatic.com/" crossorigin)
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro|Source+Serif+Pro")
-    link(rel="stylesheet" href="conceal-reveal.min.css")
-    script(src="conceal-reveal.min.js")
+    link(rel="stylesheet" href=`${name}.min.css`)
+    script(src=`${name}.min.js`)
     style.
       body {
         color: #333;
@@ -69,9 +69,9 @@ html(lang="en")
       p(style="margin: .5em 0;") #{description}.
     main
       .button-container
-        button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick="ConcealReveal.conceal(document.getElementById('target'))") conceal
-        button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick="ConcealReveal.reveal(document.getElementById('target'))") reveal
-        button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick="ConcealReveal.toggle(document.getElementById('target'))") toggle
+        button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick=`${config.entry}.conceal(document.getElementById('target'))`) conceal
+        button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick=`${config.entry}.reveal(document.getElementById('target'))`) reveal
+        button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick=`${config.entry}.toggle(document.getElementById('target'))`) toggle
       p#target
         | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     script(src="https://cdn.jsdelivr.net/npm/ripplet.js@0.1.13/umd/ripplet-declarative.min.js")
