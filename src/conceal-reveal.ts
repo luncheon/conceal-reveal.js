@@ -19,10 +19,9 @@ export function conceal(element: HTMLElement): void {
     const classList = element.classList
     if (element.offsetHeight) {
       if (element.dataset[DATASET_ORIGINAL_HEIGHT] === undefined) {
-        const priority = element.style.getPropertyPriority('height')
-        element.dataset[DATASET_ORIGINAL_HEIGHT] = `${element.style.height || ''}${priority ? '!' + priority : ''}`
+        saveOriginalStyleHeight(element);
       }
-      element.style.setProperty('height', `${getStyleHeight(element)}px`, 'important')
+      element.style.setProperty('height', `${getCurrentStyleHeight(element)}px`, 'important')
       element.getBoundingClientRect() // reflect height above
       element.addEventListener('transitionend', onTransitionEnd)
       classList.add(CLASS_CONCEALING)
@@ -39,13 +38,16 @@ export function conceal(element: HTMLElement): void {
  */
 export function reveal(element: HTMLElement): void {
   if (concealed(element)) {
+    if (element.style.height) {
+      saveOriginalStyleHeight(element)
+    }
     const classList = element.classList
     element.removeAttribute('aria-hidden')
     classList.remove(CLASS_CONCEALING)
     classList.remove(CLASS_CONCEALED)
-    restoreOriginalHeight(element)
+    restoreOriginalStyleHeight(element)
     if (element.offsetHeight) {
-      const expandedStyleHeight = getStyleHeight(element)
+      const expandedStyleHeight = getCurrentStyleHeight(element)
       classList.add(CLASS_CONCEALED)
       element.style.height = ''
       element.getBoundingClientRect() // reflect zero-height
@@ -76,12 +78,12 @@ function onTransitionEnd(this: HTMLElement) {
     this.setAttribute('aria-hidden', 'true')
   } else if (classList.contains(CLASS_REVEALING)) {
     classList.remove(CLASS_REVEALING)
-    restoreOriginalHeight(this)
+    restoreOriginalStyleHeight(this)
     delete this.dataset[DATASET_ORIGINAL_HEIGHT]
   }
 }
 
-function getStyleHeight(element: HTMLElement): number {
+function getCurrentStyleHeight(element: HTMLElement): number {
   const style = getComputedStyle(element)
   return element.offsetHeight - (
     style.boxSizing === 'border-box'
@@ -97,7 +99,12 @@ function parsePx(s: string): number {
   return +s.replace(/px$/, '')
 }
 
-function restoreOriginalHeight(element: HTMLElement) {
+function saveOriginalStyleHeight(element: HTMLElement) {
+  const priority = element.style.getPropertyPriority('height')
+  element.dataset[DATASET_ORIGINAL_HEIGHT] = `${element.style.height || ''}${priority ? '!' + priority : ''}`
+}
+
+function restoreOriginalStyleHeight(element: HTMLElement) {
   const originalHeight = (element.dataset[DATASET_ORIGINAL_HEIGHT] || '').split('!')
   element.style.setProperty('height', originalHeight[0], originalHeight[1])
 }
