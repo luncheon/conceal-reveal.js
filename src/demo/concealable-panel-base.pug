@@ -1,0 +1,18 @@
+#concealable-panel.panel
+  .panel-header
+    .panel-title
+      | Concealable Panel Sample Code
+    .panel-toolbar
+      .panel-concealment-indicator(style="transform: rotate(90deg)")
+        | &gt;
+  .panel-content
+    code: block content
+script.
+  const concealablePanel = document.getElementById('concealable-panel')
+  concealablePanel
+    .querySelector('.panel-header')
+    .addEventListener('click', function () {
+      toggle(this.nextElementSibling)
+      this.querySelector('.panel-concealment-indicator').style.transform =
+        concealed(this.nextElementSibling) ? 'rotate(270deg)' : 'rotate(90deg)'
+    })

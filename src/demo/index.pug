@@ -7,8 +7,14 @@ html(lang="en")
     title #{name} - #{description}
     link(rel="preconnect" href="https://fonts.gstatic.com/" crossorigin)
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro|Source+Serif+Pro")
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.12.0/styles/github.css")
     link(rel="stylesheet" href=`${name}.min.css`)
     script(src=`${name}.min.js`)
+    script
+      | var conceal = #{config.entry}.conceal
+      | var concealed = #{config.entry}.concealed
+      | var reveal = #{config.entry}.reveal
+      | var toggle = #{config.entry}.toggle
     style.
       body {
         color: #333;
@@ -17,7 +23,10 @@ html(lang="en")
         font-family: 'Source Sans Pro', sans-serif;
       }
       header {
-        padding-bottom: 1em;
+        margin-bottom: 1.5em;
+      }
+      section {
+        margin: .5em 0 2em 0;
       }
       h1 {
         margin: 0 .25em 0 0;
@@ -49,6 +58,8 @@ html(lang="en")
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
         cursor: pointer;
+      }
+      .button-container > button {
         min-width: 6em;
         padding: .25em .5em;
         border: 1px solid #888;
@@ -57,6 +68,11 @@ html(lang="en")
         font-family: inherit;
         font-size: .875rem;
         margin-right: .5rem;
+      }
+      code {
+        white-space: pre;
+        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+        font-size: 13px;
       }
   body
     header
@@ -67,11 +83,18 @@ html(lang="en")
       a(href=`https://github.com/${repository}` style="display: inline-block; padding: .25em;")
         img(src="https://cdn.jsdelivr.net/npm/octicons@7.0.1/build/svg/mark-github.svg" alt="GitHub" style="height: 2.25em; vertical-align: bottom;")
       p(style="margin: .5em 0;") #{description}.
+
     main
-      .button-container
-        button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick=`${config.entry}.conceal(document.getElementById('target'))`) conceal
-        button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick=`${config.entry}.reveal(document.getElementById('target'))`) reveal
-        button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick=`${config.entry}.toggle(document.getElementById('target'))`) toggle
-      p#target
-        | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      section
+        .button-container
+          button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick=`conceal(document.getElementById('target'))`) conceal
+          button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick=`reveal(document.getElementById('target'))`) reveal
+          button(type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick=`toggle(document.getElementById('target'))`) toggle
+        p#target
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+      section
+        style: include concealable-panel.css
+        include concealable-panel.pug
+
     script(src="https://cdn.jsdelivr.net/npm/ripplet.js@0.1.13/umd/ripplet-declarative.min.js")

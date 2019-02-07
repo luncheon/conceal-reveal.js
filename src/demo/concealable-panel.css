@@ -1,0 +1,25 @@
+.panel {
+  width: fit-content;
+  box-shadow: 0 0 8px black;
+}
+.panel-header {
+  display: flex;
+  align-items: center;
+  background-color: #eee;
+  padding: .5em 1.5em;
+  cursor: pointer;
+}
+.panel-title {
+  flex: auto;
+  font-weight: bold;
+}
+.panel-toolbar {
+  flex: none;
+}
+.panel-content {
+  padding: 0 1.5em 1.5em 1.5em;
+  border-top: 1px solid #ddd;
+}
+.panel-concealment-indicator {
+  transition: transform .3s;
+}

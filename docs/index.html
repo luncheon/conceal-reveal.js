@@ -1,11 +1,17 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>conceal-reveal - A tiny vanilla-js library to conceal/reveal elements</title><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro|Source+Serif+Pro"><link rel="stylesheet" href="conceal-reveal.min.css"><script src="conceal-reveal.min.js"></script><style>body {
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>conceal-reveal - A tiny vanilla-js library to conceal/reveal elements</title><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro|Source+Serif+Pro"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.12.0/styles/github.css"><link rel="stylesheet" href="conceal-reveal.min.css"><script src="conceal-reveal.min.js"></script><script>var conceal = ConcealReveal.conceal
+var concealed = ConcealReveal.concealed
+var reveal = ConcealReveal.reveal
+var toggle = ConcealReveal.toggle</script><style>body {
   color: #333;
   margin: 0;
   padding: .5em 1em;
   font-family: 'Source Sans Pro', sans-serif;
 }
 header {
-  padding-bottom: 1em;
+  margin-bottom: 1.5em;
+}
+section {
+  margin: .5em 0 2em 0;
 }
 h1 {
   margin: 0 .25em 0 0;
@@ -37,6 +43,8 @@ button {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
+}
+.button-container > button {
   min-width: 6em;
   padding: .25em .5em;
   border: 1px solid #888;
@@ -45,4 +53,60 @@ button {
   font-family: inherit;
   font-size: .875rem;
   margin-right: .5rem;
-}</style></head><body><header><h1><span class="conceal">conceal</span><span class="hyphen">-</span><span class="reveal">reveal</span></h1><a href="https://github.com/luncheon/conceal-reveal.js" style="display: inline-block; padding: .25em;"><img src="https://cdn.jsdelivr.net/npm/octicons@7.0.1/build/svg/mark-github.svg" alt="GitHub" style="height: 2.25em; vertical-align: bottom;"></a><p style="margin: .5em 0;">A tiny vanilla-js library to conceal/reveal elements.</p></header><main><div class="button-container"><button type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick="ConcealReveal.conceal(document.getElementById('target'))">conceal</button><button type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick="ConcealReveal.reveal(document.getElementById('target'))">reveal</button><button type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick="ConcealReveal.toggle(document.getElementById('target'))">toggle</button></div><p id="target">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></main><script src="https://cdn.jsdelivr.net/npm/ripplet.js@0.1.13/umd/ripplet-declarative.min.js"></script></body></html>
+}
+code {
+  white-space: pre;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 13px;
+}</style></head><body><header><h1><span class="conceal">conceal</span><span class="hyphen">-</span><span class="reveal">reveal</span></h1><a href="https://github.com/luncheon/conceal-reveal.js" style="display: inline-block; padding: .25em;"><img src="https://cdn.jsdelivr.net/npm/octicons@7.0.1/build/svg/mark-github.svg" alt="GitHub" style="height: 2.25em; vertical-align: bottom;"></a><p style="margin: .5em 0;">A tiny vanilla-js library to conceal/reveal elements.</p></header><main><section><div class="button-container"><button type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick="conceal(document.getElementById('target'))">conceal</button><button type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick="reveal(document.getElementById('target'))">reveal</button><button type="button" data-ripplet="color:rgba(255,255,255,.7)" onclick="toggle(document.getElementById('target'))">toggle</button></div><p id="target">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></section><section><style>.panel {
+  width: fit-content;
+  box-shadow: 0 0 8px black;
+}
+.panel-header {
+  display: flex;
+  align-items: center;
+  background-color: #eee;
+  padding: .5em 1.5em;
+  cursor: pointer;
+}
+.panel-title {
+  flex: auto;
+  font-weight: bold;
+}
+.panel-toolbar {
+  flex: none;
+}
+.panel-content {
+  padding: 0 1.5em 1.5em 1.5em;
+  border-top: 1px solid #ddd;
+}
+.panel-concealment-indicator {
+  transition: transform .3s;
+}
+</style><div class="panel" id="concealable-panel"><div class="panel-header"><div class="panel-title">Concealable Panel Sample Code</div><div class="panel-toolbar"><div class="panel-concealment-indicator" style="transform: rotate(90deg)">&gt;</div></div></div><div class="panel-content"><code>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"concealable-panel"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-header"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-title"</span>&gt;</span>Concealable Panel Sample Code<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-toolbar"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-concealment-indicator"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"transform: rotate(90deg)"</span>&gt;</span>&amp;gt;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-content"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">const</span> concealablePanel = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'concealable-panel'</span>)
+  concealablePanel
+    .querySelector(<span class="hljs-string">'.panel-header'</span>)
+    .addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      toggle(<span class="hljs-keyword">this</span>.nextElementSibling)
+      <span class="hljs-keyword">this</span>.querySelector(<span class="hljs-string">'.panel-concealment-indicator'</span>).style.transform =
+        concealed(<span class="hljs-keyword">this</span>.nextElementSibling) ? <span class="hljs-string">'rotate(270deg)'</span> : <span class="hljs-string">'rotate(90deg)'</span>
+    })
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></div></div><script>const concealablePanel = document.getElementById('concealable-panel')
+concealablePanel
+  .querySelector('.panel-header')
+  .addEventListener('click', function () {
+    toggle(this.nextElementSibling)
+    this.querySelector('.panel-concealment-indicator').style.transform =
+      concealed(this.nextElementSibling) ? 'rotate(270deg)' : 'rotate(90deg)'
+  })</script></section></main><script src="https://cdn.jsdelivr.net/npm/ripplet.js@0.1.13/umd/ripplet-declarative.min.js"></script></body></html>

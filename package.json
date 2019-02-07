@@ -26,7 +26,7 @@
     "build:cjs": "tsc -p . --outDir cjs/ --module CommonJS",
     "build:iife": "rollup -f iife -n ConcealReveal -o iife/conceal-reveal.js es/conceal-reveal.js && uglifyjs -c -m -o iife/conceal-reveal.min.js iife/conceal-reveal.js",
     "build:css": "copyfiles -f src/conceal-reveal.css css/ && postcss css/conceal-reveal.css -o css/conceal-reveal.min.css -u cssnano --no-map",
-    "build:demo": "pug src/index.pug -o docs/ -O package.json && copyfiles -f css/conceal-reveal.min.css iife/conceal-reveal.min.js docs/",
+    "build:demo": "pug src/demo/index.pug -o docs/ -O package.json && copyfiles -f css/conceal-reveal.min.css iife/conceal-reveal.min.js docs/",
     "build:readme": "node scripts/readme.js"
   },
   "keywords": [
@@ -43,6 +43,8 @@
   "devDependencies": {
     "copyfiles": "^2.1.0",
     "cssnano": "^4.1.8",
+    "jstransformer-highlight": "^2.0.0",
+    "jstransformer-pug": "^0.3.0",
     "postcss-cli": "^6.1.1",
     "pug-cli": "^1.0.0-alpha6",
     "rimraf": "^2.6.3",
