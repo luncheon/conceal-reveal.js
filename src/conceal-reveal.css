@@ -8,8 +8,11 @@
   transition-duration: .3s;
 }
 
-.concealed,
-.concealing {
+/* style properties representing state should have very high priority.
+   the selectors must have a higher specificity than any utility classes. */
+
+:root:root:root:root .concealed,
+:root:root:root:root .concealing {
   opacity: 0 !important;
   height: 0 !important;
   min-height: 0 !important;
@@ -21,18 +24,18 @@
   margin-bottom: 0 !important;
 }
 
-.concealed,
-.concealing,
-.revealing {
+:root:root:root:root .concealed,
+:root:root:root:root .concealing,
+:root:root:root:root .revealing {
   overflow-y: hidden !important;
 }
 
-.concealed,
-.concealing,
-.revealing,
-.concealed *,
-.concealing *,
-.revealing * {
+:root:root:root:root .concealed,
+:root:root:root:root .concealing,
+:root:root:root:root .revealing,
+:root:root:root:root .concealed *,
+:root:root:root:root .concealing *,
+:root:root:root:root .revealing * {
   pointer-events: none !important;
   -ms-user-select: none !important;
   -moz-user-select: none !important;
