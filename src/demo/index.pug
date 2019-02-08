@@ -4,7 +4,7 @@ html(lang="en")
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width,initial-scale=1.0")
-    title #{name} - #{description}
+    title #{name}.js - #{description}
     link(rel="preconnect" href="https://fonts.gstatic.com/" crossorigin)
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro|Source+Serif+Pro")
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.12.0/styles/github.css")
@@ -42,9 +42,9 @@ html(lang="en")
         padding: 0 2px;
         color: #bbb;
       }
-      h1 > .js {
+      h1 > .dotjs {
         padding-left: 1px;
-        color: #666;
+        color: #888;
       }
       #target {
         border: 1px solid #bbb;
@@ -80,6 +80,7 @@ html(lang="en")
         span.conceal conceal
         span.hyphen -
         span.reveal reveal
+        span.dotjs .js
       a(href=`https://github.com/${repository}` style="display: inline-block; padding: .25em;")
         img(src="https://cdn.jsdelivr.net/npm/octicons@7.0.1/build/svg/mark-github.svg" alt="GitHub" style="height: 2.25em; vertical-align: bottom;")
       p(style="margin: .5em 0;") #{description}.

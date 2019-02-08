@@ -1,4 +1,4 @@
-# {{name}}
+# {{name}}.js
 
 A tiny vanilla-js library to conceal/reveal elements.  
 [Demo]({{config.demoUrl}})
@@ -70,7 +70,7 @@ or for [modern browsers](https://caniuse.com/#feat=es6-module):
 
 ### Customize transitions
 
-{{name}} uses CSS transitions ([{{name}}.css](https://github.com/{{repository}}/blob/master/src/{{name}}.css)).  
+{{name}}.js uses CSS transitions.  
 You can override the transition properties for whole elements or specific elements.
 
 ```css
@@ -91,7 +91,7 @@ You can override the transition properties for whole elements or specific elemen
 /* overriding transitions for whole elements */
 .concealing,
 .revealing {
-  transition-duration: .5s;
+  transition-duration: .2s;
   transition-timing-function: linear;
 }
 

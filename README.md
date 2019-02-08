@@ -1,4 +1,4 @@
-# conceal-reveal
+# conceal-reveal.js
 
 A tiny vanilla-js library to conceal/reveal elements.  
 [Demo](https://luncheon.github.io/conceal-reveal.js/)
@@ -70,7 +70,7 @@ or for [modern browsers](https://caniuse.com/#feat=es6-module):
 
 ### Customize transitions
 
-conceal-reveal uses CSS transitions ([conceal-reveal.css](https://github.com/luncheon/conceal-reveal.js/blob/master/src/conceal-reveal.css)).  
+conceal-reveal.js uses CSS transitions.  
 You can override the transition properties for whole elements or specific elements.
 
 ```css
@@ -91,7 +91,7 @@ You can override the transition properties for whole elements or specific elemen
 /* overriding transitions for whole elements */
 .concealing,
 .revealing {
-  transition-duration: .5s;
+  transition-duration: .2s;
   transition-timing-function: linear;
 }
 
