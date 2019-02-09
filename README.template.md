@@ -25,8 +25,6 @@ Returns whether the element is concealed (including transitioning to be conceale
 
 ## Installation
 
-Coming Soon...
-<!--
 ### via [npm](https://www.npmjs.com/package/{{name}}) (with a module bundler)
 
 ```
@@ -38,7 +36,7 @@ import '{{name}}/css/{{name}}.min.css'
 import { conceal, concealed, reveal, toggle } from '{{name}}'
 ```
 
-### via CDN ([jsDelivr](https://www.jsdelivr.com/package/npm/{{name}}))
+### via CDN ([jsDelivr](https://www.jsdelivr.com/package/npm/{{name}}))
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/{{name}}@{{version}}/css/{{name}}.min.css">
@@ -56,7 +54,7 @@ or for [modern browsers](https://caniuse.com/#feat=es6-module):
   import { conceal, concealed, reveal, toggle } from "https://cdn.jsdelivr.net/npm/{{name}}@{{version}}/es/{{name}}.min.js"
 </script>
 ```
--->
+
 
 ## How to
 

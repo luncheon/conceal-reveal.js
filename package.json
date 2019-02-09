@@ -1,6 +1,6 @@
 {
   "name": "conceal-reveal",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A tiny vanilla-js library to conceal/reveal elements",
   "repository": "luncheon/conceal-reveal.js",
   "main": "cjs/conceal-reveal.js",
