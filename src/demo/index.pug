@@ -8,8 +8,8 @@ html(lang="en")
     link(rel="preconnect" href="https://fonts.gstatic.com/" crossorigin)
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro|Source+Serif+Pro")
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.12.0/styles/github.css")
-    link(rel="stylesheet" href=`${name}.min.css`)
-    script(src=`${name}.min.js`)
+    link(rel="stylesheet" href=`https://cdn.jsdelivr.net/npm/${name}@${version}/css/${name}.min.css`)
+    script(src=`https://cdn.jsdelivr.net/npm/${name}@${version}`)
     script
       | var conceal = #{config.entry}.conceal
       | var concealed = #{config.entry}.concealed
