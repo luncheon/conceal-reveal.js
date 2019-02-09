@@ -22,9 +22,9 @@
   "scripts": {
     "clean": "rimraf css/ cjs/ es/ iife/ docs/",
     "build": "npm run clean && npm run build:css && npm run build:es && npm run build:cjs && npm run build:iife && npm run build:demo && npm run build:readme",
-    "build:es": "tsc -p . --outDir es/ && terser -c -m -o es/conceal-reveal.min.js es/conceal-reveal.js",
+    "build:es": "tsc -p . --outDir es/ && terser -c -m -b beautify=false,semicolons=false -o es/conceal-reveal.min.js es/conceal-reveal.js",
     "build:cjs": "tsc -p . --outDir cjs/ --module CommonJS",
-    "build:iife": "rollup -f iife -n ConcealReveal -o iife/conceal-reveal.js es/conceal-reveal.js && uglifyjs -c -m -o iife/conceal-reveal.min.js iife/conceal-reveal.js",
+    "build:iife": "rollup -f iife -n ConcealReveal -o iife/conceal-reveal.js es/conceal-reveal.js && uglifyjs -c -m -b beautify=false,semicolons=false -o iife/conceal-reveal.min.js iife/conceal-reveal.js",
     "build:css": "copyfiles -f src/conceal-reveal.css css/ && postcss css/conceal-reveal.css -o css/conceal-reveal.min.css -u cssnano --no-map",
     "build:demo": "pug src/demo/index.pug -o docs/ -O package.json && copyfiles -f css/conceal-reveal.min.css iife/conceal-reveal.min.js docs/",
     "build:readme": "node scripts/readme.js"
