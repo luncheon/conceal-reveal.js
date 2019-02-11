@@ -39,8 +39,8 @@ import { conceal, concealed, reveal, toggle } from 'conceal-reveal'
 ### via CDN ([jsDelivr](https://www.jsdelivr.com/package/npm/conceal-reveal))
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/conceal-reveal@0.1.0/css/conceal-reveal.min.css">
-<script src="https://cdn.jsdelivr.net/npm/conceal-reveal@0.1.0"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/conceal-reveal@0.1.1/css/conceal-reveal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/conceal-reveal@0.1.1"></script>
 <script>
   const { conceal, concealed, reveal, toggle } = ConcealReveal
 </script>
@@ -49,9 +49,9 @@ import { conceal, concealed, reveal, toggle } from 'conceal-reveal'
 or for [modern browsers](https://caniuse.com/#feat=es6-module):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/conceal-reveal@0.1.0/css/conceal-reveal.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/conceal-reveal@0.1.1/css/conceal-reveal.min.css">
 <script type="module">
-  import { conceal, concealed, reveal, toggle } from "https://cdn.jsdelivr.net/npm/conceal-reveal@0.1.0/es/conceal-reveal.min.js"
+  import { conceal, concealed, reveal, toggle } from "https://cdn.jsdelivr.net/npm/conceal-reveal@0.1.1/es/conceal-reveal.min.js"
 </script>
 ```
 
