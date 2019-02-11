@@ -131,7 +131,7 @@ function saveOriginalInlineStyleHeight(element: HTMLElement) {
 
 function restoreOriginalInlineStyleHeight(element: HTMLElement) {
   const originalHeight = (element.dataset[DATASET_ORIGINAL_INLINE_STYLE_HEIGHT] || '').split(' !')
-  element.style.setProperty('height', originalHeight[0], originalHeight[1])
+  element.style.setProperty('height', originalHeight[0], originalHeight[1] || '')
 }
 
 function saveOriginalImportantInlineStyles(element: HTMLElement) {
